@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- fontawsome  -->
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- MAIN HTML CSS AND JS BLOCKS -->
+        <div class="left">
+            <label for=""><i class="fa-brands fa-html5"></i> HTML</label>
+            <textarea onkeyup="runn()" id="html-code"></textarea>
+            <label for=""><i class="fa-brands fa-css3-alt"></i> CSS</label>
+            <textarea onkeyup="runn()" id="css-code"></textarea>
+            <label for=""><i class="fa-brands fa-js"></i> JS</label>
+            <textarea onkeyup="runn()" id="js-code"></textarea>
+        </div>
+
+        <div class="right">
+            <!-- OUTPUT BLOCK  -->
+            <label for=""><i class="fa-solid fa-play"></i> Output</label>
+            <iframe id="output" >
+
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        function runn(){
+            htmlcode = document.getElementById('html-code').value;
+            csscode = document.getElementById('css-code').value;
+            jscode = document.getElementById('js-code').value;
+            output = document.getElementById('output');
+
+            output.contentDocument.body.innerHTML = htmlcode + "<style>" + csscode + "</style>"
+            output.contentWindow.eval(jscode)
+        }
+    </script>
+</body>
+
+</html>
